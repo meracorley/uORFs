@@ -32,7 +32,10 @@ def main():
 		seq = sys.argv[1].strip('\n').upper()
 		seq = seq.replace('U','T')
 	i = 0
-	while i < len(seq)-2:
+	cdsStart = len(seq)-2
+	if len(sys.argv)>2 and is.integer(int(sys.argv[2])): #can give CDS start at the second argument
+		cdsStart = int(sys.argv[2])
+	while i < cdsStart:
 		codon = seq[i:i+3] 
 		if codon in weirdStartCodons:
 			#print "AUG at", i+1

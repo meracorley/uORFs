@@ -50,11 +50,10 @@ def main():
 					#print seq[j-len(storeCodons)*3-5:j-len(storeCodons)*3+6] #printing the Kozak seq
 					#Estimate the Kozak strength of the non-ATG uORF
 					kozak = seq[i-6:i] + "ATG" + seq[i+3:i+5] #the kozakseq if start codon were an ATG
+					kozakStrength = "Incomplete"
 					if len(kozak)==11: #some initiation sites start too close to end to have a full kozak
 						kozakStrength = weirdStartCodons[codon] * float(kozakStrengthDict[kozak])
-						print "uORF starting at",i+1 ,"and ending at",j+3, " ", kozakStrength
-					else:
-						print "uORF starting at",i+1 ,"and ending at",j+3, "NOT FULL", weirdStartCodons[codon]
+					print i+1 ,j+3, kozakStrength #returns the beginning pos, end pos and Kozak seq strength of each ORF
 					storeCodons = []
 					#print seq[i:i+3], seq[j:j+3], ((j+3)-i)%3 
 					break

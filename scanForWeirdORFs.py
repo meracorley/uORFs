@@ -2,6 +2,7 @@ def main():
 	#Script to tell me where ORFs starting with a non-AUG start codon are in a given sequence.
 	#It takes a sequence, by itself or in fasta format, and gives the relative position of ORFs in the sequence.
 	#Doesn't distinguish between uORFs and main CDS because you can't without other gene annotation info.
+	#Big assumption: the kozak sequence strength surrounding a non-AUG start is its AUG start Kozak strength * eff. of non-AUG start
 	#Limitations: Input sequence has to all be on one line.
 	#TO RUN: python scanForORFs.py seq.txt/.fa
 
